@@ -1,0 +1,29 @@
+javac --module-path "C:\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml  main.java
+
+
+java --module-path "C:\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml main
+
+
+
+
+javac --module-path "C:\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml  board.java
+
+javac --module-path "C:\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml  *.java
+
+
+java --module-path "C:\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml main
+
+javac --module-path "C:\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml  credits.java
+
+javac --module-path "C:\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml  Minmax.java
+
+jar -cvfm TICTACTOE.jar  mainfest.MF *
+
+
+
+
+
+
+
+
+

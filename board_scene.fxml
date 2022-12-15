@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="302.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="board">
+   <children>
+      <Line endX="20.0" endY="234.0" layoutX="83.0" layoutY="107.0" startX="17.69293212890625" startY="-106.80000305175781" />
+      <Line endX="20.0" endY="234.0" layoutX="182.0" layoutY="107.0" startX="20.0" startY="-107.0" />
+      <Line endX="110.0" endY="17.299972534179688" layoutX="192.0" layoutY="96.0" startX="-192.0" startY="17.299972534179688" />
+      <Line endX="110.4000244140625" endY="17.299972534179688" layoutX="192.0" layoutY="212.0" startX="-192.0" startY="17.299972534179688" />
+      <Label fx:id="l5" alignment="CENTER" layoutX="104.0" layoutY="114.0" onMouseClicked="#play" prefHeight="111.0" prefWidth="96.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="l4" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="114.0" onMouseClicked="#play" prefHeight="111.0" prefWidth="89.0" textAlignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="l3" alignment="CENTER" layoutX="202.0" onMouseClicked="#play" prefHeight="111.0" prefWidth="89.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="l2" alignment="CENTER" layoutX="103.0" onMouseClicked="#play" prefHeight="82.0" prefWidth="96.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="l1" alignment="CENTER" layoutX="14.0" onMouseClicked="#play" prefHeight="111.0" prefWidth="96.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="l6" alignment="CENTER" layoutX="198.0" layoutY="114.0" onMouseClicked="#play" prefHeight="111.0" prefWidth="96.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="l7" alignment="CENTER" layoutX="7.0" layoutY="230.0" onMouseClicked="#play" prefHeight="111.0" prefWidth="96.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="l8" alignment="CENTER" layoutX="105.0" layoutY="230.0" onMouseClicked="#play" prefHeight="77.0" prefWidth="96.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+      <Label fx:id="l9" alignment="CENTER" layoutX="202.0" layoutY="230.0" onMouseClicked="#play" prefHeight="111.0" prefWidth="96.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="79.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
