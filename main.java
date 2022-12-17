@@ -20,7 +20,7 @@ public class main extends Application {
     }
 
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("main_scene.fxml"));
+   /* */     Parent root = FXMLLoader.load(getClass().getResource("main_scene.fxml"));
         Scene main_scene = new Scene(root);
 
         stage.setScene(main_scene);
@@ -54,27 +54,5 @@ public class main extends Application {
 
         stage.show();
     }
-/*
-    public void creditsFun(ActionEvent x) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("credits.fxml"));
-        Parent root = loader.load();
 
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        credits controller = loader.getController();
-
-        stage.setOnShown(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                controller.stage = stage;
-                controller.transition();
-
-            }
-        });
-
-        stage.show();
-
-    }
-*/
 }

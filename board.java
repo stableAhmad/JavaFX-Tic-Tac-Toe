@@ -36,11 +36,13 @@ public class board implements Initializable {
         depth = initializeLabels(l1, l2, l3, l4, l5, l6, l7, l8, l9);
         SimBoard = "         "; // 9 spaces represent 9 cells in the board
 
-    }
+    }                                                   //      DONE WITH
+
+
 
     public void setPlayMode(String x) {
         playMode = x;
-    }
+    }                                                                               //      DONE WITH
 
     public boolean play(MouseEvent event) throws Exception {
 
@@ -140,6 +142,8 @@ public class board implements Initializable {
 
     }
 
+
+
     public static void switchScenes(String winnerChar, FXMLLoader loader, Label l1) throws Exception {
 
         Parent root = loader.load();
@@ -150,7 +154,10 @@ public class board implements Initializable {
         stage.setScene(scene);
         stage.show();
 
-    }
+    }               //  DONE WITH
+
+
+
 
     public String checkState() {
         if (l1.getText().equals(l2.getText()) && l1.getText().equals(l3.getText()) && !(l1.getText().equals("")) ||
@@ -174,7 +181,10 @@ public class board implements Initializable {
             return "tie";
 
         return "going";
-    }
+    }                                                                                          //      DONE WITH
+
+
+
 
     private List<Label> initializeLabels(Label... labels) {
         List<Label> depth = new ArrayList<Label>();
@@ -262,5 +272,6 @@ public class board implements Initializable {
             return "tie";
         }
         return "going";
-    }
-}
+    }                                                                           //      DONE WITH
+
+                }
