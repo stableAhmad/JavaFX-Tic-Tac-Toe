@@ -38,11 +38,22 @@ public class board implements Initializable {
 
     }                                                   //      DONE WITH
 
+    private List<Label> initializeLabels(Label... labels) {
+        List<Label> depth = new ArrayList<Label>();
+        for (Label x : labels) {
+
+            depth.add(x);
+        }
+        return depth;
+    }
 
 
     public void setPlayMode(String x) {
         playMode = x;
     }                                                                               //      DONE WITH
+
+
+
 
     public boolean play(MouseEvent event) throws Exception {
 
@@ -58,7 +69,7 @@ public class board implements Initializable {
                 switchScenes(charPlay, new FXMLLoader(getClass().getResource("gameover.fxml")), l1);
                 return true;
             } else if (checkState().equals("tie")) {
-                switchScenes("h", new FXMLLoader(getClass().getResource("gameover.fxml")), l1);
+                switchScenes("m", new FXMLLoader(getClass().getResource("gameover.fxml")), l1);
 
                 return true;
             }
@@ -67,12 +78,14 @@ public class board implements Initializable {
 
             return true;
 
-        } else {
+        } else {                            //single player
 
             Label temp = (Label) event.getSource();
             if (temp.getText().equals("")) {
                 temp.setText(charPlay);
+
                 int playLabel = Integer.parseInt(temp.getId().charAt(temp.getId().length() - 1) + "") - 1;
+
                 if (playLabel != 8) {
                     SimBoard = SimBoard.substring(0, playLabel) + "X" + SimBoard.substring(playLabel + 1);
                 } else {
@@ -109,9 +122,7 @@ public class board implements Initializable {
                     score = result;
                     nextcpuPlay = depth.get(i);
 
-                    if (result == 1) {
-
-                    }
+                    
                 }
             }
 
@@ -144,57 +155,18 @@ public class board implements Initializable {
 
 
 
-    public static void switchScenes(String winnerChar, FXMLLoader loader, Label l1) throws Exception {
-
-        Parent root = loader.load();
-        gameoverjavafile controller = loader.getController();
-        controller.gameoverdisplay(winnerChar);
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) l1.getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-
-    }               //  DONE WITH
+    
 
 
 
 
-    public String checkState() {
-        if (l1.getText().equals(l2.getText()) && l1.getText().equals(l3.getText()) && !(l1.getText().equals("")) ||
-                l4.getText().equals(l5.getText()) && l4.getText().equals(l6.getText()) && !(l4.getText().equals("")) ||
-                l7.getText().equals(l8.getText()) && l7.getText().equals(l9.getText()) && !(l7.getText().equals("")) ||
-                l1.getText().equals(l5.getText()) && l1.getText().equals(l9.getText()) && !(l1.getText().equals("")) ||
-                l3.getText().equals(l5.getText()) && l3.getText().equals(l7.getText()) && !(l3.getText().equals("")) ||
-                l1.getText().equals(l4.getText()) && l1.getText().equals(l7.getText()) && !(l1.getText().equals("")) ||
-                l2.getText().equals(l5.getText()) && l2.getText().equals(l8.getText()) && !(l2.getText().equals("")) ||
-                l3.getText().equals(l6.getText()) && l3.getText().equals(l9.getText()) && !(l3.getText().equals("")))
-            return "win";
-        else if ((!l1.getText().equals("")) &&
-                (!l2.getText().equals("")) &&
-                (!l3.getText().equals("")) &&
-                (!l4.getText().equals("")) &&
-                (!l5.getText().equals("")) &&
-                (!l6.getText().equals("")) &&
-                (!l7.getText().equals("")) &&
-                (!l8.getText().equals("")) &&
-                (!l9.getText().equals("")))
-            return "tie";
-
-        return "going";
-    }                                                                                          //      DONE WITH
+                                                                                         //      DONE WITH
 
 
 
 
-    private List<Label> initializeLabels(Label... labels) {
-        List<Label> depth = new ArrayList<Label>();
-        for (Label x : labels) {
-
-            depth.add(x);
-        }
-        return depth;
-    }
-    //////// AI SECTION////////////////////////////////////////////////
+    
+    
 
     private int minimax(Label current, List<Label> depth, boolean maxTurn, String brd) {
 
@@ -215,7 +187,7 @@ public class board implements Initializable {
 
         if (maxTurn) {
 
-            int value = 2;
+            int value = 1;
 
             for (int i = 0; i < depth.size(); i++) {
                 List<Label> nextDepth = new ArrayList<Label>();
@@ -231,8 +203,7 @@ public class board implements Initializable {
             return value;
 
         } else {
-            int value = -2;
-
+            int value = -1;
             for (int i = 0; i < depth.size(); i++) {
                 List<Label> nextDepth = new ArrayList<Label>();
                 for (Label l : depth) {
@@ -249,7 +220,7 @@ public class board implements Initializable {
 
     }
 
-    // CHECK THE AI BOARD
+    
     private String checkAIBoard(String brd) {
         if (((brd.charAt(0) == brd.charAt(1)) && (brd.charAt(0) == brd.charAt(2)) && !(brd.charAt(0) == ' ')) ||
                 (brd.charAt(3) == brd.charAt(4)) && (brd.charAt(3) == brd.charAt(5)) && !(brd.charAt(3) == ' ') ||
@@ -272,6 +243,48 @@ public class board implements Initializable {
             return "tie";
         }
         return "going";
-    }                                                                           //      DONE WITH
+    }   //virtual board
 
-                }
+
+     public String checkState() {
+        if (l1.getText().equals(l2.getText()) && l1.getText().equals(l3.getText()) && !(l1.getText().equals("")) ||
+                l4.getText().equals(l5.getText()) && l4.getText().equals(l6.getText()) && !(l4.getText().equals("")) ||
+                l7.getText().equals(l8.getText()) && l7.getText().equals(l9.getText()) && !(l7.getText().equals("")) ||
+                l1.getText().equals(l5.getText()) && l1.getText().equals(l9.getText()) && !(l1.getText().equals("")) ||
+                l3.getText().equals(l5.getText()) && l3.getText().equals(l7.getText()) && !(l3.getText().equals("")) ||
+                l1.getText().equals(l4.getText()) && l1.getText().equals(l7.getText()) && !(l1.getText().equals("")) ||
+                l2.getText().equals(l5.getText()) && l2.getText().equals(l8.getText()) && !(l2.getText().equals("")) ||
+                l3.getText().equals(l6.getText()) && l3.getText().equals(l9.getText()) && !(l3.getText().equals("")))
+            return "win";
+        else if ((!l1.getText().equals("")) &&
+                (!l2.getText().equals("")) &&
+                (!l3.getText().equals("")) &&
+                (!l4.getText().equals("")) &&
+                (!l5.getText().equals("")) &&
+                (!l6.getText().equals("")) &&
+                (!l7.getText().equals("")) &&
+                (!l8.getText().equals("")) &&
+                (!l9.getText().equals("")))
+            return "tie";
+
+        return "going";
+    }      //actual labels 
+
+
+    public static void switchScenes(String winnerChar, FXMLLoader loader, Label l1) throws Exception {
+
+        Parent root = loader.load();
+        gameoverjavafile controller = loader.getController();
+        controller.gameoverdisplay(winnerChar);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) l1.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }               //  DONE WITH                                                                      //      DONE WITH
+
+    }
+
+
+
+
