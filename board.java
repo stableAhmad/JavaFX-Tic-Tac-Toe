@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import java.net.URL;
-
 import java.util.List;
 import java.util.ArrayList;
 import javafx.stage.Stage;
@@ -63,7 +62,7 @@ public class board implements Initializable {
             if (temp.getText().equals("")) {
                 temp.setText(charPlay);
 
-            }
+            }else return false;
 
             if (checkState().equals("win")) {
                 switchScenes(charPlay, new FXMLLoader(getClass().getResource("gameover.fxml")), l1);
@@ -84,7 +83,7 @@ public class board implements Initializable {
             if (temp.getText().equals("")) {
                 temp.setText(charPlay);
 
-                int playLabel = Integer.parseInt(temp.getId().charAt(temp.getId().length() - 1) + "") - 1;
+                int playLabel = Integer.parseInt(temp.getId().charAt(1) + "") - 1;
 
                 if (playLabel != 8) {
                     SimBoard = SimBoard.substring(0, playLabel) + "X" + SimBoard.substring(playLabel + 1);
@@ -93,7 +92,7 @@ public class board implements Initializable {
                 }
 
                 depth.remove(temp);
-            }
+            }else return false;
 
             if (checkState().equals("win")) {
                 switchScenes(charPlay, new FXMLLoader(getClass().getResource("gameover.fxml")), l1);
@@ -151,32 +150,20 @@ public class board implements Initializable {
             return true;
         }
 
-    }
+    }       //ME
 
 
 
-    
-
-
-
-
-                                                                                         //      DONE WITH
-
-
-
-
-    
-    
 
     private int minimax(Label current, List<Label> depth, boolean maxTurn, String brd) {
 
-        int playLabel = Integer.parseInt(current.getId().charAt(current.getId().length() - 1) + "") - 1;
-        if (playLabel != 8) {
+        int playLabel = Integer.parseInt(current.getId().charAt(current.getId().length() - 1) + "") - 1;   //get label num
+        if (playLabel != 8) {     //echo on the sim board
             brd = brd.substring(0, playLabel) + ((maxTurn) ? "O" : "X") + brd.substring(playLabel + 1);
         } else {
             brd = brd.substring(0, playLabel) + ((maxTurn) ? "O" : "X");
         }
-
+        
         if (checkAIBoard(brd).equals("win")) {
 
             return (maxTurn) ? 1 : -1;
@@ -218,7 +205,7 @@ public class board implements Initializable {
 
         }
 
-    }
+    }       //EHAB
 
     
     private String checkAIBoard(String brd) {
@@ -243,7 +230,7 @@ public class board implements Initializable {
             return "tie";
         }
         return "going";
-    }   //virtual board
+    }   //virtual board/        //ZAKI
 
 
      public String checkState() {
@@ -268,7 +255,7 @@ public class board implements Initializable {
             return "tie";
 
         return "going";
-    }      //actual labels 
+    }      //actual labels                   //ZAKI
 
 
     public static void switchScenes(String winnerChar, FXMLLoader loader, Label l1) throws Exception {
